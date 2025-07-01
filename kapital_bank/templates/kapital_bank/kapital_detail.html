@@ -1,0 +1,38 @@
+{% extends 'kapital_bank/base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+<h2>Kapital Entry Details</h2>
+
+<table class="table table-bordered w-50">
+    <tr>
+        <th>ID:</th>
+        <td>{{ kapital.id }}</td>
+    </tr>
+    <tr>
+        <th>User:</th>
+        <td>{{ kapital.user }}</td>
+    </tr>
+    <tr>
+        <th>Receiver:</th>
+        <td>{{ kapital.receiver }}</td>
+    </tr>
+    <tr>
+        <th>Amount:</th>
+        <td>{{ kapital.amount }}</td>
+    </tr>
+    <tr>
+        <th>Status:</th>
+        <td>{{ kapital.status }}</td>
+    </tr>
+    <tr>
+        <th>Created At:</th>
+        <td>{{ kapital.created_at|date:"Y-m-d H:i" }}</td>
+    </tr>
+</table>
+
+<a href="{% url 'kapital_bank:kapital_update' kapital.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'kapital_bank:kapital_delete' kapital.id %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'kapital_bank:kapital_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'kapital_bank/base.html' %}
+
+{% block title %}Form{% endblock %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Update Entry{% else %}New Entry{% endif %}</h2>
+
+<form method="POST" class="w-50">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary mt-3">
+        {% if form.instance.pk %}Update{% else %}Create{% endif %}
+    </button>
+    <a href="{% url 'kapital_bank:kapital_list' %}" class="btn btn-secondary mt-3">Cancel</a>
+</form>
+{% endblock %}
